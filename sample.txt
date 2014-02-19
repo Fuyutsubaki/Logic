@@ -1,0 +1,30 @@
+#include<iostream>
+#include<typeinfo>
+#include<string>
+
+#include"logic.hpp"
+
+int main()
+{
+	logic::rule<int, int, std::string> data;
+	data.add(5, 10, "XYZ");
+	data.add(10, 20, "ABC");
+	data.add(10, 30, "DEF");
+	data.add(10, 42, "GHI");
+
+	logic::ID<10000> X;
+	logic::ID<500> Y;
+	auto list = data(10, X, Y);
+
+	for (auto x : list)
+	{
+		std::cout << (x | logic::get(X)) << "\t" << (x | logic::get(Y)) << std::endl;
+	}
+}
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+out put
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+20      ABC
+30      DEF
+42      GHI
